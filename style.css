@@ -54,10 +54,6 @@ p, h1, h2, h3, h4 {
     overflow-wrap: break-word;
 }
 
-p {
-    text-wrap: pretty;
-}
-
 h1, h2, h3, h4 {
     /* text-wrap: balance; */
     font-family: "DM Serif Display", serif;
@@ -74,9 +70,9 @@ h2 {
     line-height: 0.9;
 }
 
-h3 {
-    font-size: 1.7rem;
-}
+h3 {font-size: 1.7rem;}
+
+p {text-wrap: pretty;}
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -141,17 +137,17 @@ h3 {
     animation-timeline: view();
     animation-range-start: 120vh;
     animation-range-end: 150vh;
-}
-
-.header .wrapper {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-
-    .logo {
-        flex-shrink: 0;
+    
+    .wrapper {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+        
+        .logo {
+            flex-shrink: 0;
+        }
     }
 }
 
@@ -217,6 +213,8 @@ h3 {
     aspect-ratio: 1;
     cursor: pointer;
     display: none;
+    border: none;
+    background-color: transparent;
     background: url(images/icon-hamburger.svg);
     background-size: 100% auto;
     background-position: center;
@@ -224,68 +222,60 @@ h3 {
 }
 
 @media (max-width: 700px) {
+
     .header {
         top: 0;
         animation: none;
         background-color: var(--clr-neutral-900);
+    }
 
-        .header-nav {
-            display: none;
-            position: fixed;
-            inset: 4.5rem 0 0 0;
-            background: url(images/bg-pattern-mobile-nav.svg) var(--clr-neutral-100);
-            background-size: 100% auto;
-            background-position: center bottom;
-            background-repeat: no-repeat;
+    .header .header-nav {
+        display: none;
+        position: fixed;
+        inset: 4.5rem 0 0 0;
+        background: url(images/bg-pattern-mobile-nav.svg) var(--clr-neutral-100);
+        background-size: 100% auto;
+        background-position: center bottom;
+        background-repeat: no-repeat;
 
-            .nav-list {
-                margin-top: 2rem;
-                padding-inline: 1rem;
+        &[data-visible] {display: block;}
+
+        .nav-list {
+            margin-top: 2rem;
+            padding-inline: 1rem;
+            height: fit-content;
+            align-items: center;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            a {
                 height: fit-content;
-                align-items: center;
-                flex-direction: column;
-                gap: 1.5rem;
+                color: var(--clr-neutral-900);
 
-                a {
-                    height: fit-content;
-                    color: var(--clr-neutral-900);
+                &:is(:hover, :focus) {color: var(--clr-main-dull);}
+            }
 
-                    &::after {
-                        display: none;
-                    }
+            .btn {
+                color: var(--clr-neutral-900);
+                border: 2px solid var(--clr-neutral-900);
 
-                    &:is(:hover, :focus) {
-                        color: var(--clr-main-dull);
-                    }
-                }
-
-                .btn {
-                    color: var(--clr-neutral-900);
-                    border: 2px solid var(--clr-neutral-900);
-
-                    &:is(:hover, :focus) {
-                        color: var(--clr-neutral-100);
-                        background-color: var(--clr-neutral-900);
-                    }
+                &:is(:hover, :focus) {
+                    color: var(--clr-neutral-100);
+                    background-color: var(--clr-neutral-900);
                 }
             }
         }
-
-        .header-nav[data-visible] {
-            display: block;
-        }
     }
 
-    /* hamburger button queries */
     .hamburger-btn {
         display: block;
-    }
 
-    .header-nav[data-visible] ~ .hamburger-btn {
-        background: url(images/icon-close.svg);
-        background-size: 100% auto;
-        background-position: center;
-        background-repeat: no-repeat;
+        &:has(+ .header-nav[data-visible]) {
+            background: url(images/icon-close.svg);
+            background-size: 100% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
     }
 
     /* Class to disable scrolling while mobile nav is open */
@@ -531,13 +521,13 @@ main {
         .socials {
             display: flex;
             gap: 1rem;
-
+            
             svg {
                 fill: var(--clr-neutral-400);
                 transition: fill 0.3s ease;
-                
-                &:is(:hover, :focus) {fill: var(--clr-neutral-100);}
             }
+
+            & a:is(:hover, :focus) svg {fill: var(--clr-neutral-100);}
         }
     }
 
