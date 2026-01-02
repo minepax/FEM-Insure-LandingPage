@@ -50,9 +50,7 @@ img, picture, svg {
     max-width: 100%;
 }
 
-p, h1, h2, h3, h4 {
-    overflow-wrap: break-word;
-}
+p, h1, h2, h3, h4 {overflow-wrap: break-word;}
 
 h1, h2, h3, h4 {
     text-wrap: balance;
@@ -165,9 +163,7 @@ p {text-wrap: pretty;}
         align-items: center;
         gap: 2rem;
         
-        .logo {
-            flex-shrink: 0;
-        }
+        .logo {flex-shrink: 0;}
     }
 }
 
@@ -177,7 +173,7 @@ p {text-wrap: pretty;}
     display: flex;
     gap: 2rem;
 
-    a {
+    .nav-link {
         height: 100%;
         font-size: 0.8rem;
         font-weight: var(--fw-bold);
@@ -241,7 +237,7 @@ p {text-wrap: pretty;}
     background-repeat: no-repeat;
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 43.75rem) {
 
     .header {
         top: 0;
@@ -315,7 +311,7 @@ main {
         position: absolute;
         top: 25rem;
         left: 0;
-        z-index: 100;
+        z-index: 99;
         width: 16rem;
         height: 40rem;
         background-image: url(/images/bg-pattern-intro-left-desktop.svg);
@@ -412,12 +408,12 @@ main {
         }
     }
 
-    main .main-bg-pattern {
+    .main-bg-pattern {
         position: absolute;
         top: 51rem;
         left: auto;
         right: 0;
-        z-index: 100;
+        z-index: 99;
         width: 35vw;
         height: 40rem;
         background-image: url(/images/bg-pattern-intro-right-mobile.svg);
@@ -498,13 +494,9 @@ main {
         max-width: 20ch;
         color: var(--clr-neutral-900);
     }
-
-    .btn {
-        flex-shrink: 0;
-    }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 43.75rem) {
     .cta {background-image: url(/images/bg-pattern-how-we-work-mobile.svg);}
 }
 
@@ -560,7 +552,7 @@ main {
         list-style-type: none;
         align-content: start;
         
-        & * {
+        * {
             font-weight: var(--fw-bold);
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -568,7 +560,7 @@ main {
 
         .nav-title {margin-bottom: 1rem;}
 
-        a {
+        .nav-link {
             text-decoration: none;
             color: var(--clr-neutral-100);
 
@@ -581,7 +573,7 @@ main {
     }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 43.75rem) {
     .footer {
         background-image: url(/images/bg-pattern-footer-mobile.svg);
 
