@@ -84,12 +84,6 @@ p {text-wrap: pretty;}
 
 /* COMPONENTS AND UTILITIES */
 
-.flow {
-    display: grid;
-    justify-items: start;
-    gap: var(--flow-space, 1.25rem);
-}
-
 .btn {
     height: fit-content;
     padding: 0.5rem 1.5rem;
@@ -108,16 +102,22 @@ p {text-wrap: pretty;}
     }
 }
 
-.wrapper {
-    margin-inline: auto;
-    max-width: 70rem;
-}
-
 .card-layout {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
     gap: 2rem;
+}
+
+.flow {
+    display: grid;
+    justify-items: start;
+    gap: var(--flow-space, 1.25rem);
+}
+
+.wrapper {
+    margin-inline: auto;
+    max-width: 70rem;
 }
 
 .sr-only {
